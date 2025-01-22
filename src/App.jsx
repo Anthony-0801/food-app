@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Search from "./components/Search"
-import ProductDisplay from "./components/ProductDisplay";
+import ProductsDisplay from "./components/ProductsDisplay";
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Search food={food} setFood={setFood} />
-      <ProductDisplay key={food.id} food={food} />
+      <ProductsDisplay key={food.id} food={food} />
     </>
   )
 }
