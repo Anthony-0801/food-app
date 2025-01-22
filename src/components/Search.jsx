@@ -9,6 +9,7 @@ export const Search = ({food, setFood}) => {
         const res = await fetch(`${import.meta.env.VITE_API_SEARCH}?query=${query}&apiKey=${import.meta.env.VITE_API_KEY}`);
         const data = await res.json();
         setFood(data.results);
+        console.log(data.results);
         }
         setSearch();
     }, [query])
@@ -16,7 +17,7 @@ export const Search = ({food, setFood}) => {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">Food App</a>
+        <a className="btn btn-ghost text-xl">🍕 Food App</a>
       </div>
       <div className="flex-none gap-2">
           <input
