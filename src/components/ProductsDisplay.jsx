@@ -57,7 +57,7 @@ export const ProductsDisplay = ({ food }) => {
               </div>
             </div>
           ))}
-          {/* test commit for setting up the global username */}
+          {/* another test commit for setting up the global username */}
 
           {/* for tablet and small screens */}
           <dialog id="my_modal_3" className="modal">
