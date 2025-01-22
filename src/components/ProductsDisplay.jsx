@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const ProductsDisplay = ({ food }) => {
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState(["656329"]);
+
+  useEffect(() => {
+    async function setRecipe() {
+    const res = await fetch(`${import.meta.env.VITE_API_RECIPE}${item}/information?apiKey=${import.meta.env.VITE_API_KEY}`);
+    const data = await res.json();
+    console.log(data);
+    }
+    setRecipe();
+}, [item])
 
   return (
     <section className="py-10 bg-gray-100 sm:py-16 lg:py-24">
@@ -27,7 +36,7 @@ export const ProductsDisplay = ({ food }) => {
                   <label
                     className="px-4 py-2 text-xs font-semibold tracking-widest text-white uppercase bg-green-700 rounded-md drawer-button"
                     htmlFor="my-drawer-4"
-                    onClick={() => setItem(item.id, item.title)}
+                    onClick={() => setItem(item.id)}
                   >
                     View Recipe
                   </label>
@@ -43,7 +52,7 @@ export const ProductsDisplay = ({ food }) => {
                     className="w-full lg:hidden bg-green-700 text-white p-2 rounded-md"
                     onClick={() => {
                       document.getElementById("my_modal_3").showModal();
-                      setItem(item.id, item.title);
+                      setItem(item.id);
                     }}
                   >
                     Show Recipe
@@ -57,7 +66,6 @@ export const ProductsDisplay = ({ food }) => {
               </div>
             </div>
           ))}
-          {/* another test commit for setting up the global username */}
 
           {/* for tablet and small screens */}
           <dialog id="my_modal_3" className="modal">

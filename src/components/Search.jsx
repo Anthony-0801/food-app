@@ -9,7 +9,6 @@ export const Search = ({food, setFood}) => {
         const res = await fetch(`${import.meta.env.VITE_API_SEARCH}?query=${query}&apiKey=${import.meta.env.VITE_API_KEY}`);
         const data = await res.json();
         setFood(data.results);
-        console.log(data.results);
         }
         setSearch();
     }, [query])
