@@ -76,15 +76,15 @@ export const ProductsDisplay = ({ food }) => {
             <div className="modal-box">
               <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}
-                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                <button className="btn btn-sm btn-circle btn-ghost bg-red-500 absolute right-2 top-2">
                   ✕
                 </button>
               </form>
 
                 {/* Modal content here */}
                 <img className="w-full mb-8 rounded-md" src={recipe?.image} alt={recipe?.title} />
-                <h3 className=" font-bold mb-2 text-lg">Recipe for {recipe?.title}</h3>
-                <h4 className="font-bold mb-2">Instructions</h4>
+                <h3 className=" font-bold mb-2 text-center text-lg">Recipe for {recipe?.title}</h3>
+                <h4 className="font-bold mb-2 divider">Instructions</h4>
                 {recipe?.analyzedInstructions[0].steps.map((step) => (
                   <div key={step.number} className="mb-6">
                     <p><span className="font-semibold mb-2">{step.number}. </span> 
@@ -93,13 +93,13 @@ export const ProductsDisplay = ({ food }) => {
                 ))}
 
                 <ul className="mb-8">
-                  <h4 className="font-bold mb-2">Ingredients</h4>
+                  <h4 className="font-bold mb-2 divider">Ingredients</h4>
                   {recipe?.extendedIngredients.map((ingredient) => (
                     <li key={ingredient.id} className="mb-2 list-disc ml-4">
                       {ingredient.original}
                     </li>
                   ))}
-                  <h4 className="font-bold mb-2">Additional Information</h4>
+                  <h4 className="font-bold mb-2 divider">Additional Information</h4>
                   <li>Preparation Time: {recipe?.readyInMinutes} minutes</li>
                   <li>Servings: {recipe?.servings}</li>
                   <li>Dairy-free: {recipe?.dairyFree ? "🐮 Yes" : "❌ No "}</li>
@@ -123,23 +123,23 @@ export const ProductsDisplay = ({ food }) => {
               <div className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                 {/* Sidebar content here */}
                 <img className="w-full mb-8 rounded-md" src={recipe?.image} alt={recipe?.title} />
-                <h3 className=" font-bold mb-2 text-lg">Recipe for {recipe?.title}</h3>
-                <h4 className="font-bold mb-2">Instructions</h4>
+                <h3 className=" font-bold mb-2 text-center text-lg">Recipe for {recipe?.title}</h3>
+                <h4 className="font-bold mb-2 divider">Instructions</h4>
                 {recipe?.analyzedInstructions[0].steps.map((step) => (
-                  <div key={step.number} className="mb-6">
+                  <div key={step.number} className="mb-4">
                     <p><span className="font-semibold mb-2">{step.number}. </span> 
                     {step.step}</p>
                   </div>
                 ))}
 
                 <ul className="mb-8">
-                  <h4 className="font-bold mb-2">Ingredients</h4>
+                  <h4 className="font-bold mb-2 divider">Ingredients</h4>
                   {recipe?.extendedIngredients.map((ingredient) => (
                     <li key={ingredient.id} className="mb-2 list-disc ml-4">
                       {ingredient.original}
                     </li>
                   ))}
-                  <h4 className="font-bold mb-2">Additional Information</h4>
+                  <h4 className="font-bold mb-2 divider">Additional Information</h4>
                   <li>Preparation Time: {recipe?.readyInMinutes} minutes</li>
                   <li>Servings: {recipe?.servings}</li>
                   <li>Dairy-free: {recipe?.dairyFree ? "🐮 Yes" : "❌ No "}</li>
